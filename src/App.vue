@@ -4,10 +4,12 @@ import { store } from './data/store'
 import Header from './components/Header.vue'
 import Main from './components/Main.vue'
 import Footer from './components/Footer.vue'
+import Card from './components/partials/Card.vue'
   export default {
     components:{
       Header,
       Main,    
+      Card,
       Footer
     },
 
@@ -31,7 +33,7 @@ import Footer from './components/Footer.vue'
         })
       },
 
-      
+
       getTv(){
         axios.get(this.store.apiTv, {
           params: this.store.queryParams
@@ -60,6 +62,7 @@ import Footer from './components/Footer.vue'
 
   <Header />
   <Main />
+  <Card />
   <Footer />
 
   </div>
