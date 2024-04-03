@@ -20,6 +20,7 @@ import Card from './components/partials/Card.vue'
     }, 
 
     methods: {
+      
       getMovies(){
         axios.get(this.store.apiMovies, {
           params: this.store.queryParams
@@ -63,10 +64,9 @@ import Card from './components/partials/Card.vue'
   <div>
 
   <Header 
-  @goSearch="getMovies"
+  @goSearch="getMovies(),getTv()"
   />
   <Main />
-  <Card />
   <Footer />
 
   </div>

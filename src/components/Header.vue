@@ -12,7 +12,7 @@ import {store} from '../data/store'
       goSearch(){
         this.store.queryParams.query = this.searchMovie
         this.$emit('goSearch')
-      }
+      },
     }
     
   }

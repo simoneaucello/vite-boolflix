@@ -1,14 +1,12 @@
 <script>
   export default {
     props: {
-      title: String,
-      original_title: String,
+      name: String,
+      original_name: String,
       original_language: String,
       vote_average: Number,
       poster_path: String,
-      name: String,
-      original_name: String,
-      overview: String
+      
 
     }
     
@@ -17,38 +15,36 @@
 
 <template>
 
-<div class="card m-3 sa_card" style="width: 18rem;">
+  <div class="card m-3 sa_card" style="width: 18rem;">
   <img :src="`https://image.tmdb.org/t/p/w342${ poster_path }`" class="card-img-top" alt="...">
-  <div class="card-body text-center rounded-3 "  id="description" >
-    <h3>{{ original_title }}</h3>
-    <h6 class="card-text">{{ title }}</h6>
-    <h6 class="card-text">{{ original_language }}</h6>
-    <h6 class="card-text">{{ vote_average }}</h6>
+  <div class="card-body"  id="description" >
+    <h5>{{ original_name }}</h5>
+    <p class="card-text">{{ name }}</p>
+    <p class="card-text">{{ original_language }}</p>
+    <p class="card-text">{{ vote_average }}</p>
     <div class="over">
     <p class="card-text">{{ overview }}</p>
   </div>
   </div>
-</div>
- 
+  </div>
 </template>
 
 
 <style lang="scss" scoped>
 
+
 .sa_card{
   background-color: #d1d1d100;
   box-shadow: inset 0px 10px 90px 10px rgba($color: #161616, $alpha: 1.0);
   border-radius: 20px;
-  transition: .4s;
-}
-.sa_card:hover{
-  box-shadow: inset 0px 10px 90px 10px rgba($color: #e6e6e6, $alpha: 1.0);
-  
 }
 
+.sa_card:hover{
+  box-shadow: inset 0px 10px 90px 10px rgba($color: #f74141, $alpha: 1.0);
+}
 .over{
   display: none;
-  transition: .2s ease-in
+  transition: .2s ease-out
 }
 #description{
   background-color: #cec5c500;
@@ -56,12 +52,11 @@
 }
 #description:hover{
   background-color: #cec5c500;
-  color: rgb(27, 27, 27);
+  color: rgb(255, 174, 81);
   transition: .2s ease-in;
   cursor: pointer;
+
 }
-
-
 
 
 
