@@ -10,9 +10,11 @@ import {store} from '../data/store'
 
     data(){
       return{
-        store
+        store,
       }
-    }
+    },
+
+    
   }
 </script>
 
@@ -32,11 +34,11 @@ class="d-flex flex-wrap container">
   />
 
 </div>
-
-<div v-else>
+<div v-else class="container text-center my-5">
   <h2 class="text-danger">{{store.errorMsg}}</h2>
 
 </div>
+
 
 </template>
 

@@ -30,6 +30,7 @@ import Card from './components/partials/Card.vue'
         })
         .catch(error => {
         console.log(error);
+        this.store.errorMsg = 'Film non trovato'
         })
       },
 
@@ -44,6 +45,7 @@ import Card from './components/partials/Card.vue'
         })
         .catch(error => {
         console.log(error);
+        this.store.errorMsg = 'Serie non trovata'
         })
       }
     },
@@ -60,7 +62,9 @@ import Card from './components/partials/Card.vue'
 <template>
   <div>
 
-  <Header />
+  <Header 
+  @goSearch="getMovies"
+  />
   <Main />
   <Card />
   <Footer />

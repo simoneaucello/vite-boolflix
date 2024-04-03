@@ -3,7 +3,15 @@ import {store} from '../data/store'
   export default {  
     data(){
       return{
-        store
+        store,
+        searchMovie: '',
+      }
+    },
+
+    methods: {
+      goSearch(){
+        this.store.queryParams.query = this.searchMovie
+        this.$emit('goSearch')
       }
     }
     
@@ -18,8 +26,11 @@ import {store} from '../data/store'
     <h1>Boolflix</h1>
     <div class="d-flex p-3">
       <input
+      v-model.trim="store.queryParams.query"
+      @keyup.enter="$emit('goSearch')"
       type="text" class="form-control" placeholder="Search title" aria-describedby="addon-wrapping" size="10">
       <button
+      @click="$emit('goSearch')"
       type="button" class="btn btn-danger mx-3">Search</button>
     </div>  
   </div>
