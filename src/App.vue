@@ -17,6 +17,25 @@ import Footer from './components/Footer.vue'
       }
     }, 
 
+    methods: {
+      getMovies(){
+        axios.get(this.store.apiMovies, {
+          params: this.store.queryParams
+        })
+        .then(result => {
+          console.log(result.data.results);
+          this.store.moviesList = result.data.results
+        })
+        .catch(error => {
+        console.log(error);
+        })
+      }
+    },
+
+    mounted(){
+      this.getMovies();
+    }
+
   }
 
 </script>
