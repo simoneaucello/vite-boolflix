@@ -29,11 +29,26 @@ import Footer from './components/Footer.vue'
         .catch(error => {
         console.log(error);
         })
+      },
+
+      
+      getTv(){
+        axios.get(this.store.apiTv, {
+          params: this.store.queryParams
+        })
+        .then(result => {
+          console.log(result.data.results);
+          this.store.tvList = result.data.results
+        })
+        .catch(error => {
+        console.log(error);
+        })
       }
     },
 
     mounted(){
       this.getMovies();
+      this.getTv();
     }
 
   }
