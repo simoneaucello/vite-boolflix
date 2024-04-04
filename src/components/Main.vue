@@ -24,10 +24,10 @@ import {store} from '../data/store';
 
 
 <template>
-  <main class="container">
-    <h2
+  <main class="container-fluid">
+    <h1
       v-if="store.moviesList.length > 0"
-      class="my-3 text-bg-warning rounded-3 text-center p-2 fw-bold ">Film</h2>
+      class="my-5 text-white rounded-3 text-center p-2 fw-bold">FILM</h1>
     <div
     v-if="store.moviesList.length > 0"
     class="d-flex flex-wrap justify-content-center">
@@ -48,9 +48,9 @@ import {store} from '../data/store';
       <h2 class="text-danger">{{store.errorMsg}}</h2>
     </div>
 
-    <h2
+    <h1
       v-if="store.tvList.length > 0"
-      class="my-3 text-bg-warning rounded-3 text-center p-2 fw-bold">Serie TV</h2>
+      class="my-5 text-white rounded-3 mx-4 text-center p-2 fw-bold">SERIE TV</h1>
     <div
     v-if="store.tvList.length > 0"
     class="d-flex flex-wrap justify-content-center">

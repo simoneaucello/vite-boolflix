@@ -30,7 +30,7 @@
 
 <template>
 
-  <div class="card m-3 sa_card" style="width: 18rem;">
+  <div class="card m-3 sa_card" style="width: 15rem;">
  <img
     v-if="this.poster_path !== null"
     :src="`https://image.tmdb.org/t/p/w342${ poster_path }`"
