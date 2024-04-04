@@ -18,11 +18,40 @@
 <template>
 
 <div class="card m-3 sa_card" style="width: 18rem;">
-  <img :src="`https://image.tmdb.org/t/p/w342${ poster_path }`" class="card-img-top" alt="...">
+  <img
+    v-if="this.poster_path !== null"
+    :src="`https://image.tmdb.org/t/p/w342${ poster_path }`"
+    class="card-img-top"
+    alt="...">
+  <img
+    v-else
+    src="/img/csaff-no-poster.jpg"
+    class="card-img-top"
+    alt="...">
+
   <div class="card-body text-center rounded-3 "  id="description" >
     <h3>{{ original_title }}</h3>
     <h6 class="card-text">{{ title }}</h6>
-    <h6 class="card-text">{{ original_language }}</h6>
+    <p
+      v-if="this.original_language == 'it'"
+      class="card-text">
+    <img
+      src="../../../public/img/it.png"
+      alt=""
+      width="30px"
+      >
+  </p>
+    <p
+      v-else-if="this.original_language == 'en'"
+      class="card-text">
+      <img
+      src="../../../public/img/en.png"
+      alt=""
+      width="30px"
+      >
+    </p>
+    <p v-else class="card-text">{{ original_language }}</p>
+
     <h6 class="card-text">{{ vote_average }}</h6>
     <div class="over">
     <p class="card-text">{{ overview }}</p>

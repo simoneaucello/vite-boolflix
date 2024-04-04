@@ -28,7 +28,7 @@ import {store} from '../data/store'
       class="my-3 text-bg-warning rounded-3 text-center p-2">Movies</h2>
     <div
     v-if="store.moviesList.length > 0"
-    class="d-flex flex-wrap ">
+    class="d-flex flex-wrap justify-content-center">
 
       <Card 
       v-for="poster in store.moviesList"
