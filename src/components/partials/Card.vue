@@ -9,7 +9,22 @@
       name: String,
       original_name: String,
       overview: String
+    },
 
+
+    methods: {
+      voteAverage(rating){
+        const star = []
+        const rate = Math.ceil(rating/2)
+        for (let i = 0; i < 5; i++){
+          if(i < rate){
+            star.push('<i class="fa-solid fa-star" style="color: #FFD43B;"></i>')
+          } else{
+            star.push('<i class="fa-regular fa-star"></i>')
+          }
+        }
+        return star.join(' ');
+      }
     }
     
   }
@@ -18,25 +33,31 @@
 <template>
 
 <div class="card m-3 sa_card" style="width: 18rem;">
+
+
   <img
     v-if="this.poster_path !== null"
-    :src="`https://image.tmdb.org/t/p/w342${ poster_path }`"
+    :src="`https://image.tmdb.org/t/p/w342${poster_path}`"
     class="card-img-top"
     alt="...">
+    
   <img
     v-else
     src="/img/csaff-no-poster.jpg"
     class="card-img-top"
     alt="...">
 
+  
+
   <div class="card-body text-center rounded-3 "  id="description" >
+    
     <h3>{{ original_title }}</h3>
     <h6 class="card-text">{{ title }}</h6>
     <p
       v-if="this.original_language == 'it'"
       class="card-text">
     <img
-      src="../../../public/img/it.png"
+      src="/img/it.png"
       alt=""
       width="30px"
       >
@@ -45,17 +66,17 @@
       v-else-if="this.original_language == 'en'"
       class="card-text">
       <img
-      src="../../../public/img/en.png"
+      src="/img/en.png"
       alt=""
       width="30px"
       >
     </p>
     <p v-else class="card-text">{{ original_language }}</p>
 
-    <h6 class="card-text">{{ vote_average }}</h6>
-    <div class="over">
-    <p class="card-text">{{ overview }}</p>
-  </div>
+    <p v-html="voteAverage(vote_average)"></p>
+    <p class="card-text over">{{ overview }}</p>
+
+    
   </div>
 </div>
  
@@ -65,29 +86,45 @@
 <style lang="scss" scoped>
 
 .sa_card{
+  position: relative;
   background-color: #d1d1d100;
-  box-shadow: inset 0px 10px 90px 10px rgba($color: #161616, $alpha: 1.0);
+  box-shadow: inset 0px 10px 20px 10px rgba($color: #161616, $alpha: 1.0);
   border-radius: 20px;
-  transition: .4s;
+  transition: .4s ease-in-out
 }
 .sa_card:hover{
-  box-shadow: inset 0px 10px 90px 10px rgba($color: #e6e6e6, $alpha: 1.0);
+  box-shadow: inset 0px 10px 20px 10px rgba($color: #e6e6e6, $alpha: 1.0);
   
 }
 
 .over{
-  display: none;
-  transition: .2s ease-in
+  position: absolute;
+  top: 100%;
+  opacity: 0;
+  transition: .5s ease-out;
+  margin-left: 0;
+  border-radius: 20px;
+  padding:5px;
+  font-size: 15px;
+  }
+
+.sa_card:hover .over{
+  top:5%;
+  background-color: rgba($color: #020202, $alpha: .6);
+  width: 90%;
+  opacity: 1;
 }
 #description{
+
   background-color: #cec5c500;
   color: rgb(255, 255, 255);
 }
 #description:hover{
-  background-color: #cec5c500;
-  color: rgb(27, 27, 27);
+  // background-color: #cec5c500;
+  // color: rgb(27, 27, 27);
   transition: .2s ease-in;
   cursor: pointer;
+ 
 }
 
 

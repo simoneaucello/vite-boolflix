@@ -48,12 +48,20 @@ import Card from './components/partials/Card.vue'
         console.log(error);
         this.store.errorMsg = 'Serie non trovata'
         })
+      },
+
+      getApis(){
+        this.getMovies();
+        this.getTv();
+
       }
+
+
     },
 
     mounted(){
-      this.getMovies();
-      this.getTv();
+      this.getApis();
+      
     }
 
   }
@@ -64,7 +72,7 @@ import Card from './components/partials/Card.vue'
   <div>
 
   <Header 
-  @goSearch="getMovies(),getTv()"
+  @goSearch="getApis"
   />
   <Main />
   <Footer />

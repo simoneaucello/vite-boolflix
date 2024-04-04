@@ -1,12 +1,13 @@
 <script>
 import Card from './partials/Card.vue';
 import CardTv from './partials/CardTv.vue';
-import {store} from '../data/store'
+import {store} from '../data/store';
   export default {
 
     components: {
       Card,
-      CardTv
+      CardTv,
+
     },
 
 
@@ -15,6 +16,7 @@ import {store} from '../data/store'
         store,
       }
     },
+
 
     
   }
@@ -25,7 +27,7 @@ import {store} from '../data/store'
   <main class="container">
     <h2
       v-if="store.moviesList.length > 0"
-      class="my-3 text-bg-warning rounded-3 text-center p-2">Movies</h2>
+      class="my-3 text-bg-warning rounded-3 text-center p-2 fw-bold ">Film</h2>
     <div
     v-if="store.moviesList.length > 0"
     class="d-flex flex-wrap justify-content-center">
@@ -48,10 +50,10 @@ import {store} from '../data/store'
 
     <h2
       v-if="store.tvList.length > 0"
-      class="my-3 text-bg-warning rounded-3 text-center p-2">Serie TV</h2>
+      class="my-3 text-bg-warning rounded-3 text-center p-2 fw-bold">Serie TV</h2>
     <div
     v-if="store.tvList.length > 0"
-    class="d-flex flex-wrap ">
+    class="d-flex flex-wrap justify-content-center">
 
       <CardTv
       v-for="poster in store.tvList"
@@ -61,6 +63,7 @@ import {store} from '../data/store'
       :original_language="poster.original_language"
       :vote_average="poster.vote_average"
       :poster_path="poster.poster_path"
+      :overview="poster.overview"
       />
 
     </div>
