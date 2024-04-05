@@ -30,7 +30,7 @@
 
 <template>
 
-  <div class="card m-3 sa_card" style="width: 15rem;">
+  <div class="card m-3 sa_card" style="width: 17rem;">
  <img
     v-if="this.poster_path !== null"
     :src="`https://image.tmdb.org/t/p/w342${ poster_path }`"
@@ -77,12 +77,14 @@
 .sa_card{
   position: relative;
   background-color: #d1d1d100;
-  box-shadow: inset 0px 10px 20px 10px rgba($color: #161616, $alpha: 1.0);
+  box-shadow: 0px 10px 20px 3px rgba($color: #000000, $alpha: 1.0);
   border-radius: 20px;
-  transition: .4s ease-in-out
+  transition: 1s ease-in-out
+  
 }
 .sa_card:hover{
-  box-shadow: inset 0px 10px 20px 10px rgba($color: #e6e6e6, $alpha: 1.0);
+  box-shadow: inset 0px 10px 20px 12px rgba($color: #000000, $alpha: 1.0);
+  // transition: 1s ease
   
 }
 
@@ -94,12 +96,16 @@
   margin-left: 0;
   border-radius: 20px;
   padding:5px;
-  font-size: 15px;
+  font-size: 14px;
+  height: 60%;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  overflow-x: hidden;
   }
 
 .sa_card:hover .over{
   top:5%;
-  background-color: rgba($color: #020202, $alpha: .6);
+  background-color: rgba($color: #020202, $alpha: .8);
   width: 90%;
   opacity: 1;
 }
@@ -109,13 +115,12 @@
   color: rgb(255, 255, 255);
 }
 #description:hover{
-  // background-color: #cec5c500;
-  // color: rgb(27, 27, 27);
   transition: .2s ease-in;
-  cursor: pointer;
- 
+  cursor: pointer; 
 }
-
+div:hover .hide{
+  display: block;
+}
 
 
 </style>

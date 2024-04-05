@@ -4,12 +4,10 @@ import { store } from './data/store'
 import Header from './components/Header.vue'
 import Main from './components/Main.vue'
 import Footer from './components/Footer.vue'
-import Card from './components/partials/Card.vue'
   export default {
     components:{
       Header,
-      Main,    
-      Card,
+      Main,
       Footer
     },
 
@@ -22,6 +20,8 @@ import Card from './components/partials/Card.vue'
     methods: {
       
       getMovies(){
+        this.store.moviesList = []
+        this.store.errorMsg = ''
         axios.get(this.store.apiMovies, {
           params: this.store.queryParams
         })
@@ -37,6 +37,8 @@ import Card from './components/partials/Card.vue'
 
 
       getTv(){
+        this.store.tvList = []
+        this.store.errorMsg = ''
         axios.get(this.store.apiTv, {
           params: this.store.queryParams
         })
@@ -50,9 +52,26 @@ import Card from './components/partials/Card.vue'
         })
       },
 
+      getTrend(){
+        // this.store.trendParams= []
+        // this.store.errorMsg = ''
+        axios.get(this.store.apiTrend, {
+          params: this.store.queryParams
+        })
+        .then(result => {
+          console.log(result.data.results);
+          this.store.trendingList = result.data.results
+        })
+        .catch(error => {
+        console.log(error);
+        })
+
+      },
+
       getApis(){
         this.getMovies();
         this.getTv();
+        this.getTrend()
 
       }
 

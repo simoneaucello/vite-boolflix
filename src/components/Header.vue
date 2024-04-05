@@ -9,9 +9,9 @@ import {store} from '../data/store'
     },
 
     methods: {
-      goSearch(){
+      goSearch(){        
         this.store.queryParams.query = this.searchMovie
-        this.$emit('goSearch')
+        this.$emit('goSearch')       
       },
     }
     

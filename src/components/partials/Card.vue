@@ -92,6 +92,7 @@
   box-shadow: 0px 10px 20px 3px rgba($color: #000000, $alpha: 1.0);
   border-radius: 20px;
   transition: 1s ease-in-out
+  
 }
 .sa_card:hover{
   box-shadow: inset 0px 10px 20px 12px rgba($color: #000000, $alpha: 1.0);
@@ -108,6 +109,10 @@
   border-radius: 20px;
   padding:5px;
   font-size: 14px;
+  height: 60%;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  overflow-x: hidden;
   }
 
 .sa_card:hover .over{
