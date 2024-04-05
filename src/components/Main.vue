@@ -14,28 +14,28 @@ import {store} from '../data/store';
     data(){
       return{
         store,
+        
       }
-    },
+    },  
 
-
-    
   }
 </script>
 
 
 <template>
   <main class="container-fluid">
+  <div v-if="store.moviesList.length == 0 || store.tvList.length == 0">
+    <h1 class="my-5 text-white rounded-3 text-center p-2 fw-bold">FILM POPOLARI</h1>
 
-    <h1 class="my-5 text-white rounded-3 text-center p-2 fw-bold">ULTIME USCITE</h1>
+    
 
     <div
     class="d-flex flex-wrap justify-content-center text-center">
-
-      <CardTv
+    <Card 
       v-for="poster in store.trendingList"
       :key="poster.id"
-      :name="poster.title"
-      :original_name="poster.original_title"
+      :title="poster.title"
+      :original_title="poster.original_title"
       :original_language="poster.original_language"
       :vote_average="poster.vote_average"
       :poster_path="poster.poster_path"
@@ -43,6 +43,7 @@ import {store} from '../data/store';
       />
 
     </div>
+  </div>
 
     <h1
       v-if="store.moviesList.length > 0"
@@ -63,9 +64,6 @@ import {store} from '../data/store';
       />
     </div>
 
-    <div v-else class="container text-center my-5">
-      <h2 class="text-danger d-flex justify-content-center align-items-center">{{store.errorMsg}}</h2>
-    </div>
 
     <h1
       v-if="store.tvList.length > 0"
@@ -86,9 +84,7 @@ import {store} from '../data/store';
       />
 
     </div>
-    <div v-else class="container text-center my-5">
-      <h2 class="text-danger">{{store.errorMsg}}</h2>
-    </div>
+
 
 
 </main>

@@ -20,8 +20,8 @@ import Footer from './components/Footer.vue'
     methods: {
       
       getMovies(){
+        
         this.store.moviesList = []
-        this.store.errorMsg = ''
         axios.get(this.store.apiMovies, {
           params: this.store.queryParams
         })
@@ -31,14 +31,14 @@ import Footer from './components/Footer.vue'
         })
         .catch(error => {
         console.log(error);
-        this.store.errorMsg = 'Film non trovato'
         })
+
       },
 
 
       getTv(){
+        this.store.trendingList= []
         this.store.tvList = []
-        this.store.errorMsg = ''
         axios.get(this.store.apiTv, {
           params: this.store.queryParams
         })
@@ -48,13 +48,12 @@ import Footer from './components/Footer.vue'
         })
         .catch(error => {
         console.log(error);
-        this.store.errorMsg = 'Serie non trovata'
         })
       },
 
       getTrend(){
-        // this.store.trendParams= []
-        // this.store.errorMsg = ''
+        this.store.trendingList= []
+        this.store.errorMsg = ''
         axios.get(this.store.apiTrend, {
           params: this.store.queryParams
         })

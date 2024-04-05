@@ -11,7 +11,6 @@ export const store = reactive({
     language: 'it-IT',
     query: '',
   },
-  errorMsg: '',
   trendingList: [],
   apiTrend: 'https://api.themoviedb.org/3/movie/popular',
 
